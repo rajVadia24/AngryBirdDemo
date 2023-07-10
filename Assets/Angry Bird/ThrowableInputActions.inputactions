@@ -1,0 +1,34 @@
+{
+    "name": "ThrowableInputActions",
+    "maps": [
+        {
+            "name": "Throwable",
+            "id": "a54aed18-fc17-49fd-85c1-0c55eac48e06",
+            "actions": [
+                {
+                    "name": "Throw",
+                    "type": "Value",
+                    "id": "b5553c07-a5a2-4363-8a95-d029fcd7f5c8",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "fc68b806-e43a-4874-8504-4760d6d51e4f",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Throw",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
