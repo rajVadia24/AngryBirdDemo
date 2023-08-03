@@ -10,13 +10,7 @@ public class InputController : MonoBehaviour
 {
 	private ThrowableInputActions throwableInputAction;
 	
-
 	public static InputController Instance;
-
-	public delegate void OnThrowableGrabbed(Vector3 dragValue);
-	public static event OnThrowableGrabbed OnGrab;
-	public delegate void OnThrowableReleased();
-	public static event OnThrowableReleased OnRelease;
 
 	[SerializeField] private float dragThresold = 5f;
 
@@ -31,6 +25,12 @@ public class InputController : MonoBehaviour
 		throwableInputAction.Enable();
 		throwableInputAction.Throwable.Throw.performed += Grab;
 		throwableInputAction.Throwable.Throw.canceled += Release;
+		throwableInputAction.Throwable.Ablilty.performed += SingleTap;
+	}
+
+	private void SingleTap(InputAction.CallbackContext obj)
+	{
+		Events.onTap?.Invoke();
 	}
 
 	private void OnDestroy()
@@ -42,7 +42,7 @@ public class InputController : MonoBehaviour
 
 	private void Release(InputAction.CallbackContext obj)
 	{
-		OnRelease?.Invoke();
+		Events.onRelease?.Invoke();
 	}
 
 	private void Grab(InputAction.CallbackContext obj)
@@ -68,9 +68,12 @@ public class InputController : MonoBehaviour
 			if (draggedValue.magnitude > dragThresold)
 			{
 				draggedValue.x = 0;
-				OnGrab?.Invoke(draggedValue);
+				Events.	onGrab?.Invoke(draggedValue);
 			}
 			yield return new WaitForFixedUpdate();
 		}
 	}
+
+
+
 }

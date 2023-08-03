@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -14,33 +15,33 @@ public class Thrower : MonoBehaviour
 
 	private void OnEnable()
 	{
-		InputController.OnGrab += Aim;
-		InputController.OnRelease += Throw;
+		Events.onGrab += Aim;
+		Events.onRelease += Throw;
 	}
 
 	private void OnDisable()
 	{
-		InputController.OnGrab -= Aim;
-		InputController.OnRelease -= Throw;
+		Events.onGrab -= Aim;
+		Events.onRelease -= Throw;
 	}
 	private void Aim(Vector3 mousePos)
 	{
-	/*	Debug.Log(Vector3.Distance(_currentThrowable.transform.position, _originPoint.position));
-		if (Vector3.Distance(_currentThrowable.transform.position, _originPoint.position) > maxStretchRadius)
-		{
-			Vector3 direction = (_currentThrowable.transform.position - _originPoint.position).normalized;
-			_currentThrowable.transform.position = _originPoint.position + direction * maxStretchRadius;
-		}
-		else
-		{
-		}*/
-			_currentThrowable.DragPlayer(mousePos);
+		_currentThrowable.DragPlayer(mousePos);
 	}
 
 	private void Throw()
 	{
 		Vector3 dir = (_currentThrowable.transform.position - _originPoint.position).normalized;
 		_currentThrowable.Throw(dir, _currentThrowable._force);
+	}
+
+
+	public IEnumerator SetCurrentThrowable(Throwables t)
+	{
+		yield  return new WaitForSeconds(1);
+		_currentThrowable = t;
+		_currentThrowable.transform.position = _originPoint.position;
+		_currentThrowable.ChangeThrowableState(ThrowableState.Loaded);
 	}
 
 }

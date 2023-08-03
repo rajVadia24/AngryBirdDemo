@@ -35,6 +35,15 @@ public partial class @ThrowableInputActions: IInputActionCollection2, IDisposabl
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Ablilty"",
+                    ""type"": ""Button"",
+                    ""id"": ""3a12fbf9-9840-40d2-8ee8-c171e219514c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -48,6 +57,17 @@ public partial class @ThrowableInputActions: IInputActionCollection2, IDisposabl
                     ""action"": ""Throw"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""10c159c0-608d-4a0b-8c49-1302e3ddabcb"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": ""Tap"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Ablilty"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -57,6 +77,7 @@ public partial class @ThrowableInputActions: IInputActionCollection2, IDisposabl
         // Throwable
         m_Throwable = asset.FindActionMap("Throwable", throwIfNotFound: true);
         m_Throwable_Throw = m_Throwable.FindAction("Throw", throwIfNotFound: true);
+        m_Throwable_Ablilty = m_Throwable.FindAction("Ablilty", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -119,11 +140,13 @@ public partial class @ThrowableInputActions: IInputActionCollection2, IDisposabl
     private readonly InputActionMap m_Throwable;
     private List<IThrowableActions> m_ThrowableActionsCallbackInterfaces = new List<IThrowableActions>();
     private readonly InputAction m_Throwable_Throw;
+    private readonly InputAction m_Throwable_Ablilty;
     public struct ThrowableActions
     {
         private @ThrowableInputActions m_Wrapper;
         public ThrowableActions(@ThrowableInputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Throw => m_Wrapper.m_Throwable_Throw;
+        public InputAction @Ablilty => m_Wrapper.m_Throwable_Ablilty;
         public InputActionMap Get() { return m_Wrapper.m_Throwable; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -136,6 +159,9 @@ public partial class @ThrowableInputActions: IInputActionCollection2, IDisposabl
             @Throw.started += instance.OnThrow;
             @Throw.performed += instance.OnThrow;
             @Throw.canceled += instance.OnThrow;
+            @Ablilty.started += instance.OnAblilty;
+            @Ablilty.performed += instance.OnAblilty;
+            @Ablilty.canceled += instance.OnAblilty;
         }
 
         private void UnregisterCallbacks(IThrowableActions instance)
@@ -143,6 +169,9 @@ public partial class @ThrowableInputActions: IInputActionCollection2, IDisposabl
             @Throw.started -= instance.OnThrow;
             @Throw.performed -= instance.OnThrow;
             @Throw.canceled -= instance.OnThrow;
+            @Ablilty.started -= instance.OnAblilty;
+            @Ablilty.performed -= instance.OnAblilty;
+            @Ablilty.canceled -= instance.OnAblilty;
         }
 
         public void RemoveCallbacks(IThrowableActions instance)
@@ -163,5 +192,6 @@ public partial class @ThrowableInputActions: IInputActionCollection2, IDisposabl
     public interface IThrowableActions
     {
         void OnThrow(InputAction.CallbackContext context);
+        void OnAblilty(InputAction.CallbackContext context);
     }
 }
