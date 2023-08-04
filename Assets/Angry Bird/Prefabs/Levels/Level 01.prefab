@@ -319,7 +319,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29eead32322183e4f980b258ccecb862, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _myHealth: {fileID: 11400000, guid: 67ec96a788fc7194aa4dd9d6ad22a98b, type: 2}
+  myPoint: {fileID: 11400000, guid: 240a6d937306ac2478145f57eda2c58a, type: 2}
 --- !u!1 &4426754893855515778
 GameObject:
   m_ObjectHideFlags: 0
@@ -439,6 +439,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyState: 0
+  myPoint: {fileID: 11400000, guid: 5bcb2c4539f13d44db8c7fadce2a5548, type: 2}
 --- !u!1 &4945179119518750180
 GameObject:
   m_ObjectHideFlags: 0
@@ -487,7 +488,7 @@ MonoBehaviour:
   thrower: {fileID: 4730225672487129527}
   throwables:
   - {fileID: 5310622489540327296}
-  - {fileID: 9120862704662931680}
+  - {fileID: 4193897944048638503}
   enemies:
   - {fileID: 5815944844361812517}
   - {fileID: 4948276384642555962}
@@ -673,7 +674,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29eead32322183e4f980b258ccecb862, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _myHealth: {fileID: 11400000, guid: 67ec96a788fc7194aa4dd9d6ad22a98b, type: 2}
+  myPoint: {fileID: 11400000, guid: 240a6d937306ac2478145f57eda2c58a, type: 2}
 --- !u!1 &5654167604254144056
 GameObject:
   m_ObjectHideFlags: 0
@@ -821,6 +822,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyState: 0
+  myPoint: {fileID: 11400000, guid: 5bcb2c4539f13d44db8c7fadce2a5548, type: 2}
 --- !u!1 &5825610340405303481
 GameObject:
   m_ObjectHideFlags: 0
@@ -1047,7 +1049,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29eead32322183e4f980b258ccecb862, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _myHealth: {fileID: 11400000, guid: 67ec96a788fc7194aa4dd9d6ad22a98b, type: 2}
+  myPoint: {fileID: 11400000, guid: 240a6d937306ac2478145f57eda2c58a, type: 2}
 --- !u!1 &8077762497833139699
 GameObject:
   m_ObjectHideFlags: 0
@@ -1228,7 +1230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29eead32322183e4f980b258ccecb862, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _myHealth: {fileID: 11400000, guid: 67ec96a788fc7194aa4dd9d6ad22a98b, type: 2}
+  myPoint: {fileID: 11400000, guid: 240a6d937306ac2478145f57eda2c58a, type: 2}
 --- !u!1 &8977687089757363815
 GameObject:
   m_ObjectHideFlags: 0
@@ -1375,7 +1377,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29eead32322183e4f980b258ccecb862, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _myHealth: {fileID: 11400000, guid: 67ec96a788fc7194aa4dd9d6ad22a98b, type: 2}
+  myPoint: {fileID: 11400000, guid: 240a6d937306ac2478145f57eda2c58a, type: 2}
 --- !u!1001 &982599733968101264
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1392,7 +1394,7 @@ PrefabInstance:
     - target: {fileID: 1841881562043153351, guid: b428870572322dc44a59b28e195fe22b,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3818379766060718199, guid: b428870572322dc44a59b28e195fe22b,
         type: 3}
@@ -1506,6 +1508,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blue Bird
       objectReference: {fileID: 0}
+    - target: {fileID: 1841881562043153351, guid: 4dd94ef99c4913646bc64712f8baa950,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3818379766060718199, guid: 4dd94ef99c4913646bc64712f8baa950,
         type: 3}
       propertyPath: m_RootOrder
@@ -1572,18 +1579,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 3455509776015433597}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &9120862704662931680 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5865867714156885917, guid: 4dd94ef99c4913646bc64712f8baa950,
-    type: 3}
-  m_PrefabInstance: {fileID: 3455509776015433597}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4da359befbd045047b89b31a4a006aaa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &7100384163695003096
 PrefabInstance:
   m_ObjectHideFlags: 0

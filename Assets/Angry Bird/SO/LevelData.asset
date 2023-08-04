@@ -12,5 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7be2ed4809afe08469f546a6bcf3ae0c, type: 3}
   m_Name: LevelData
   m_EditorClassIdentifier: 
-  levels:
-  - {fileID: 143995309962853711, guid: c10a91fe22188dc429869bf474d27351, type: 3}
+  levelData:
+  - level: {fileID: 143995309962853711, guid: c10a91fe22188dc429869bf474d27351, type: 3}
+    levelHighScore: 11000
+  - level: {fileID: 143995309962853711, guid: c10a91fe22188dc429869bf474d27351, type: 3}
+    levelHighScore: 10000

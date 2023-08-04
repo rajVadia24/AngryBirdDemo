@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,18 +11,24 @@ public class Level : MonoBehaviour
 
 	private  Throwables currentThrowable;
 	private int _currentThrowableIndex;
+	private float totalScore = 0;
 
 	private void OnEnable()
 	{
-		Events.onThrowableHitted += CheckForLevelCompletion;		
+		Events.onThrowableHitted += CheckForLevelCompletion;
+		Events.onScoreAdded += CalculateScore;
 	}
+
+
 	private void OnDisable()
 	{
 		Events.onThrowableHitted -= CheckForLevelCompletion;
+		Events.onScoreAdded -= CalculateScore;
 	}
 	private void Start()
 	{
 		thrower = GetComponentInChildren<Thrower>();
+		totalScore = 0;
 	}
 	public void StartLevel()
 	{
@@ -52,6 +59,10 @@ public class Level : MonoBehaviour
 	{
 		StartCoroutine(CheckAllEnemiesState());
 	}
+	private void CalculateScore(float value)
+	{
+		totalScore += value;
+	}
 	private IEnumerator CheckAllEnemiesState()
 	{
 		yield return new WaitForSeconds(3f);
@@ -63,7 +74,10 @@ public class Level : MonoBehaviour
 				Debug.Log("Game Over");
 		}
 		else
+		{
 			Debug.Log("LevelComplete");
+			Events.onLevelCompleted?.Invoke(totalScore);
+		}
 	}
 	bool IsAlive()
 	{

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Obstacle : MonoBehaviour
 {
-	public FloatVariable _myHealth;
+	public FloatVariable myPoint;
 
 	private void OnCollisionEnter(Collision collision)
 	{
@@ -15,6 +15,7 @@ public class Obstacle : MonoBehaviour
 			float impactForce = relativeVelocity.magnitude/Time.deltaTime;
 			if( impactForce > 1000f )
 			{
+				Events.onScoreAdded?.Invoke(myPoint.initialValue);
 				StartCoroutine(DisableObstacle());
 			}
 		}

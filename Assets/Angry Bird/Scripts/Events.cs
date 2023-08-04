@@ -15,8 +15,11 @@ public static class Events
 	public static OnSingleTap onTap;
 	#endregion
 
-	public delegate void OnScoreAdded();
+	public delegate void OnScoreAdded(float value);
 	public static OnScoreAdded onScoreAdded;
+
+	public delegate void OnLevelComplete(float levelScore);
+	public static OnLevelComplete onLevelCompleted;
 
 	#region Throwable Events
 	public delegate void OnThrowableHit();

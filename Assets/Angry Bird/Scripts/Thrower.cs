@@ -32,7 +32,8 @@ public class Thrower : MonoBehaviour
 	private void Throw()
 	{
 		Vector3 dir = (_currentThrowable.transform.position - _originPoint.position).normalized;
-		_currentThrowable.Throw(dir, _currentThrowable._force);
+		if(dir.magnitude>0)	
+			_currentThrowable.Throw(dir, _currentThrowable._force);
 	}
 
 
